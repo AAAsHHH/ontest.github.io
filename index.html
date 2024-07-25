@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-US">
+  <link rel="manifest" href="manifest.webmanifest">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Cycle Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icons/circle.svg" />
+  </head>  
+  <body>
+    <h1>Darker tracker</h1>
+    <button id="install" hidden>Install</button>
+    <button onclick="myFunction()">Darki</button>
+    <script src="app.js" defer></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+    </script>
+  </body>
+</html>
