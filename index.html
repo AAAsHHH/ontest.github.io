@@ -14,14 +14,23 @@
     <div class="g_id_signin" data-type="standard"></div>
 
     <h2>User Email: <span id="user-email"></span></h2>
+    <h3>Name: <span id="user-name"></span></h3>
+    <div>picture
+        <img id="user-image" src="" alt="">
+    </div>
 
     <script>
         function handleCredentialResponse(response) {
             const credential = response.credential;
             const payload = JSON.parse(atob(credential.split('.')[1]));
             const email = payload.email;
+            const name = payload.name;
+            const picture = payload.picture;
 
             document.getElementById('user-email').innerText = email;
+            document.getElementById('user-name').innerText = name;
+            const imgElement = document.getElementById('user-image');
+            imgElement.src = picture;
         }
 
         window.onload = function() {
