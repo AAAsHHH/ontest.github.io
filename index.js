@@ -1,22 +1,20 @@
-
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId());
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); 
-    $(("#name")).text(profile.getName());
-    $(("#email")).text(profile.getEmail());
-    $(("#image")).attr('src', profile.getImageUrl());
+  function handleCredentialResponse(response) {
+    const credential = response.credential;
+    const parts = credential.split('.');
+    const payload = JSON.parse(atob(parts[1]));
+  
+    const userId = payload.sub;
+    const name = payload.name;
+    const email = payload.email;
+    const picture = payload.picture;
+  
+    console.log('ID:', userId);
+    console.log('Full Name:', name);
+    console.log('Email:', email);
+    console.log('Profile Picture:', picture);
+    $(("#name")).text(payload.name);
+    $(("#email")).text(payload.email);
+    $(("#image")).attr('src', payload.picture);
     $((".data")).css("display", "block");
     $(("#.g-signin2")).css("display", "block");
-    
-  }
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      alert("U have been success signooout");
-      $(("#.g-signin2")).css("display", "block");
-      $((".data")).css("display", "^block");
-    });
   }
