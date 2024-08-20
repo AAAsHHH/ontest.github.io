@@ -18,3 +18,13 @@
     $((".data")).css("display", "block");
     $(("#.g-signin2")).css("display", "block");
   }
+ window.onload = function() {
+    google.accounts.id.initialize({
+        client_id: "542701689003-qmngcm1vdsq0vcgfeo0jme0r8iovbnmm.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+    });
+
+    google.accounts.id.renderButton(
+        document.getElementsByClassName("g_id_signin")[0],
+        { theme: "outline", size: "large" }
+    );
