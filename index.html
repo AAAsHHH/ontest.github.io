@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-In</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
     <div id="g_id_onload"
-    data-client_id="542701689003-vasmtsfngu1l76pk3doisnb8q0mia7ku.apps.googleusercontent.com"
-    data-callback="handleCredentialResponse"
-    data-context="signin"
-    data-ux_mode="popup"
-    data-login_uri="https://aaashhh.github.io/ontest.github.io/"
-    data-auto_prompt="false">
-</div>
-
-<div class="g_id_signin"
-    data-type="standard"
-    data-shape="pill"
-    data-theme="filled_blue"
-    data-text="signin"
-    data-size="large"
-    data-logo_alignment="left"
-    data-width="200px">
-</div>
-<!--     <div class="data">
-        <p>Name</p>
-        <p id="name"></p>
-        <p>Profile Pic</p>
-        <img id="image" width="100" height="100" />
-        <p>Email</p>
-        <p id="email"></p>
-        <button type="button" onclick="signOut()">signout</button>
+         data-client_id="YOUR_GOOGLE_CLIENT_ID"
+         data-callback="handleCredentialResponse">
     </div>
-        <script src="index.js"></script> -->
-  </body>
+    <div class="g_id_signin" data-type="standard"></div>
+
+    <h2>User Email: <span id="user-email"></span></h2>
+
+    <script>
+        function handleCredentialResponse(response) {
+            const credential = response.credential;
+            const payload = JSON.parse(atob(credential.split('.')[1]));
+            const email = payload.email;
+
+            document.getElementById('user-email').innerText = email;
+        }
+
+        window.onload = function() {
+            google.accounts.id.initialize({
+                client_id: "YOUR_GOOGLE_CLIENT_ID",
+                callback: handleCredentialResponse
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementsByClassName("g_id_signin")[0],
+                { theme: "outline", size: "large" }
+            );
+        };
+    </script>
+</body>
 </html>
