@@ -8,7 +8,7 @@ function onSignIn(googleUser) {
     $(("#email")).text(profile.getEmail());
     $(("#image")).attr('src', profile.getImageUrl());
     $((".data")).css("display","block");
-    $(("#.g-signin2")).css("display","none");
+    $(("#.g-signin2")).css("display","block");
     
   }
   function signOut() {
@@ -16,6 +16,6 @@ function onSignIn(googleUser) {
     auth2.signOut().then(function () {
       alert("U have been success signooout");
       $(("#.g-signin2")).css("display","block");
-      $((".data")).css("display","none");
+      $((".data")).css("display","block");
     });
   }
