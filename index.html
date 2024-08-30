@@ -18,8 +18,23 @@
     <div>picture
         <img id="user-image" src="" alt="">
     </div>
+        <form style="display:none;" id="myform" method="post" action="https://script.google.com/macros/s/AKfycbygyeKVqKlLdKudYpu_AlvlmfvSLj83c8LXNGwBxM3IhPtmRJdt-JfGi3hhI2aeT-GA/exec" name="contact-form">
+        <h4>Contact Us</h4>
+        <input type="text" name="your-name" id="your-name" placeholder="Name">
+        <input type="text" name="your-number" id="your-number" placeholder="Number">
+        <input type="email" name="your-email" id="your-email" placeholder="Email">
+        <input type="text" name="your-score" id="your-score" placeholder="Score" id="core" value="Score: 0">
+        <input type="submit" value="Submit" id="submit">
+        <div id="loading" style="display:none;">Loading...</div>
+        <div id="message"></div>
+    </form>
 
     <script>
+            const url= 'https://script.google.com/macros/s/AKfycbyD3p7pMg-05lzFnIUfb5iQ7AuL6_KWBtbrNtR9xW9r1jEoDbk_LurkTwHyKlm-TYHpbA/exec'
+
+            const form = document.forms['contact-form']
+            const loading = document.getElementById('loading');
+        
         function handleCredentialResponse(response) {
             const credential = response.credential;
             const payload = JSON.parse(atob(credential.split('.')[1]));
@@ -31,6 +46,15 @@
             document.getElementById('user-name').innerText = name;
             const imgElement = document.getElementById('user-image');
             imgElement.src = picture;
+
+            document.getElementById('your-name').value = email;
+            document.getElementById('your-number').value = name;
+                e.preventDefault()
+                // loading.style.display = 'block';
+                fetch(url, { method: 'POST', body: new FormData(form)})
+                .then(response =>  alert("Thank you! your form is submitted successfully." ))
+                .then(() => { window.location.reload();  document.getElementById('myform').reset(); })
+                .catch(error => console.error('Error!', error.message))
         }
 
         window.onload = function() {
