@@ -1,0 +1,55 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'poppins', sans-serif;
+	font-size: 18px;
+}
+body{
+	background-color: #333333;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.containerform{
+	width: 500px;
+	padding: 30px;
+	border: 1px solid #08176d;
+	border-radius: 10px;
+	background-color: #800a9e;
+}
+h4{
+	margin-bottom: 10px;
+	font-size: 24px;
+	color: white;
+}
+input{
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+textarea{
+	width: 100%;
+	padding: 10px;
+}
+#submit{
+	border: none;
+	background-color: rgb(55, 0, 255);
+	color: white;
+	width: 100%;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+#submit:hover{
+	background-color: #333333;
+}
+#loading {
+    display: none; /* Hidden by default */
+    color: blue; /* Loading text color */
+    font-weight: bold;
+}
+#nokia {
+	width: 200px; /* Adjust size as needed */
+	cursor: pointer;
+}
