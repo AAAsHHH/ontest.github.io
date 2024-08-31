@@ -10,18 +10,18 @@ form.addEventListener('submit', e => {
   loading.style.display = 'block';
   fetch(url, { method: 'POST', body: new FormData(form)})
   .then(response =>  alert("Thank you! your form is submitted successfully." ))
-  .then(() => { document.getElementById('myform').reset();})
-  .catch(error => console.error('Error!', error.message))
-
-})
-
-        fetch(`${url}?header=score`)
+  .then(() => {         fetch(`${url}?header=score`)
             .then((response) => response.json())
             .then(({ data }) => {
                 console.log(data);
                 populateDatalists("score", data)
             })
-            .catch((error) => console.error('!!!!!!!!', error));
+            .catch((error) => console.error('!!!!!!!!', error));})
+  .catch(error => console.error('Error!', error.message))
+
+})
+
+
 
         // fetch(`${url}?header=number`)
         //     .then((response) => response.json())
