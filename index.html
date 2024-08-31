@@ -1,60 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sign-In</title>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+	<link rel="stylesheet" href="./style.css">
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <div id="g_id_onload"
-         data-client_id="542701689003-vasmtsfngu1l76pk3doisnb8q0mia7ku.apps.googleusercontent.com"
-         data-callback="handleCredentialResponse">
-    </div>
-    <div class="g_id_signin" data-type="standard"></div>
+	<div class="containerform">
+		<div>
+			<img id="user-image" src="" alt="">
+		</div>
+		<span id="user-name"></span>
+		<form id="myform" method="post" action="https://script.google.com/macros/s/AKfycbygyeKVqKlLdKudYpu_AlvlmfvSLj83c8LXNGwBxM3IhPtmRJdt-JfGi3hhI2aeT-GA/exec" name="contact-form">
+			<h4>Contact Us</h4>
+				<div id="g_id_onload"
+				data-client_id="542701689003-vasmtsfngu1l76pk3doisnb8q0mia7ku.apps.googleusercontent.com"
+				data-callback="handleCredentialResponse">
+				</div>
+				<div class="g_id_signin" data-type="standard"></div>
+			
 
-    <h2>User Email: <span id="user-email"></span></h2>
-    <h3>Name: <span id="user-name"></span></h3>
-    <div>picture
-        <img id="user-image" src="" alt="">
-    </div>
-        <form id="myform" method="post" action="https://script.google.com/macros/s/AKfycbygyeKVqKlLdKudYpu_AlvlmfvSLj83c8LXNGwBxM3IhPtmRJdt-JfGi3hhI2aeT-GA/exec" name="contact-form">
-        <h4>Contact Us</h4>
-        <input type="text" name="your-name" id="your-name" placeholder="Name">
-        <input type="text" name="your-number" id="your-number" placeholder="Number">
-        <input type="email" name="your-email" id="your-email" placeholder="Email">
-        <input type="text" name="your-score" id="your-score" placeholder="Score" id="core" value="Score: 0">
-<!--         <input type="submit" value="Submit" id="submit">
-        <div id="loading" style="display:none;">Loading...</div>
-        <div id="message"></div> -->
-    </form>
-
-    <script>
-            const url= 'https://script.google.com/macros/s/AKfycbyD3p7pMg-05lzFnIUfb5iQ7AuL6_KWBtbrNtR9xW9r1jEoDbk_LurkTwHyKlm-TYHpbA/exec'
-
-            const form = document.forms['contact-form']
-            const loading = document.getElementById('loading');
+			<input type="text" id="name" name="name" placeholder="Name" list="names">
+			<input type="text" id="number" name="number" placeholder="Number" style="display:none;">
+			<input type="email" id="email" name="email" placeholder="Email">
+            
+			<textarea name="message" rows="7" placeholder="Your Message"></textarea>
+			<input type="submit" value="Your acount coins unleash" id="submit">
+			<div id="loading" style="display:none;">Loading...</div>
+            <div id="message"></div>
+			<input type="text" id="score" name="score" placeholder="Score" value="💰">
+		</form>
+	</div>
+	<img id="nokia" src="./theon.gif" alt="Clickable Phone" />
+    <!-- <div id="score">Score: 0</div> -->
+	<script src="./app.js"></script>
+	<script>    
+		let score = 0; // Initialize score
+		const phone = document.getElementById("nokia");
+		const output = document.getElementById("score");    
         
-        function handleCredentialResponse(response) {
+		phone.onclick = function() {
+			score++; // Increment score on click
+			// output.innerHTML = "Score: " + score; // Update score display
+            document.getElementById('core').value = "Score: " + score; // Set the input's value to the button's text
+		};
+		//googleauth
+		function handleCredentialResponse(response) {
             const credential = response.credential;
             const payload = JSON.parse(atob(credential.split('.')[1]));
             const email = payload.email;
             const name = payload.name;
             const picture = payload.picture;
 
-            document.getElementById('user-email').innerText = email;
+			document.getElementById('name').value = name;
+            document.getElementById('email').value = email;
             document.getElementById('user-name').innerText = name;
-            const imgElement = document.getElementById('user-image');
-            imgElement.src = picture;
-
-            document.getElementById('your-name').value = email;
-            document.getElementById('your-number').value = name;
-                e.preventDefault()
-                // loading.style.display = 'block';
-                fetch(url, { method: 'POST', body: new FormData(form)})
-                .then(response =>  alert("Thank you! your form is submitted successfully." ))
-                .then(() => { window.location.reload();  document.getElementById('myform').reset(); })
-                .catch(error => console.error('Error!', error.message))
+            
+            const imgElement = document.getElementById('user-picture').src = picture;
+           
         }
 
         window.onload = function() {
@@ -68,6 +72,10 @@
                 { theme: "outline", size: "large" }
             );
         };
+		//googleauth end
     </script>
 </body>
 </html>
+
+
+
