@@ -1,5 +1,5 @@
 
-const url= 'https://script.google.com/macros/s/AKfycbyqp2mbqIZZaXrVKLhBU8KSdSMOxOAFz0lw15VR_dXLlcYTUBETHBRa5lD1JPfqSl7y0A/exec'
+const url= 'https://script.google.com/macros/s/AKfycby-6D0T1doa37XxoGE0jqBdjP1mWeGeqbyeZJQNiQoDqMeD1WPAfPWOYHdK39FoOXunLw/exec'
 
 const form = document.forms['contact-form']
 const loading = document.getElementById('loading');
