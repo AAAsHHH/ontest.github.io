@@ -10,7 +10,7 @@ form.addEventListener('submit', e => {
   loading.style.display = 'block';
   fetch(url, { method: 'POST', body: new FormData(form)})
   .then(response =>  alert("Thank you! your form is submitted successfully." ))
-  .then(() => { window.location.reload();  document.getElementById('myform').reset();})
+  .then(() => { document.getElementById('myform').reset(); loading.style.display = 'none';})
   .catch(error => console.error('Error!', error.message))
 
 })
@@ -45,7 +45,7 @@ form.addEventListener('submit', e => {
             // for (const item of arr ) {
             //     result += `<option value="${item}">`;
             // }
-            document.getElementById(id).value = arr[arr.length - 2];
+            document.getElementById(id).value = arr[arr.length - 1];
         }
 
 
