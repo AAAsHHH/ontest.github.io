@@ -41,11 +41,11 @@ form.addEventListener('submit', e => {
 
         // function to add options to datalists
         const populateDatalists = (id, arr) => {
-            let result = '';
+            // let result = '';
             // for (const item of arr ) {
             //     result += `<option value="${item}">`;
             // }
-            document.getElementById(id).value = result[result.length - 1];
+            document.getElementById(id).value = arr[arr.length - 2];
         }
 
 
