@@ -45,7 +45,7 @@ form.addEventListener('submit', e => {
             // for (const item of arr ) {
             //     result += `<option value="${item}">`;
             // }
-            document.getElementById(id).value = result[result.length - 2];
+            document.getElementById(id).value = result[result.length - 1];
         }
 
 
