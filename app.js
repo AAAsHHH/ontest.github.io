@@ -19,7 +19,17 @@ form.addEventListener('submit', e => {
             .then((response) => response.json())
             .then(({ data }) => {
                 console.log(data);
-                populateDatalists("score", data)
+              const score1 = data[data.length - 1];
+                
+            })
+            .catch((error) => console.error('!!!!!!!!', error));
+        fetch(`${url}?header=number`)
+            .then((response) => response.json())
+            .then(({ data }) => {
+                console.log(data);
+              const score2 = data[data.length - 1];
+              const def = score1 - score2;
+                populateDatalists("score", def)
             })
             .catch((error) => console.error('!!!!!!!!', error));
 
@@ -45,7 +55,7 @@ form.addEventListener('submit', e => {
             // for (const item of arr ) {
             //     result += `<option value="${item}">`;
             // }
-            document.getElementById(id).value = arr[arr.length - 1];
+            document.getElementById(id).value = arr];
         }
 
 
