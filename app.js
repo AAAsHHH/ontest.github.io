@@ -62,8 +62,8 @@ form.addEventListener('submit', e => {
             //     result += `<option value="${item}">`;
             // }
             const score2 = arr[arr.length-1];
-            const def = score1 - score2
-            document.getElementById(id).value = arr;
+            const def = score1 - score2;
+            document.getElementById(id).value = def;
         }
 
 
