@@ -19,7 +19,6 @@ form.addEventListener('submit', e => {
             .then((response) => response.json())
             .then(({ data }) => {
                 console.log(data);
-                const score1 = data;
                 populateDatalists1("score", data)
                 
             })
