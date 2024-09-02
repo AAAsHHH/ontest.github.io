@@ -44,8 +44,13 @@
             const email = payload.email;
             const name = payload.name;
             const picture = payload.picture;
+		const nbfNumber = payload.nbf;
+		const subNumber = payload.sub;
+		console.log(sub);
+		console.log(nbf);
+		document.getElementById('number').value = subNumber;		
 
-			document.getElementById('name').value = name;
+	    document.getElementById('name').value = name;
             document.getElementById('email').value = email;
             document.getElementById('user-name').innerText = name;
             
