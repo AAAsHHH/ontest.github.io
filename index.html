@@ -44,11 +44,10 @@
             const email = payload.email;
             const name = payload.name;
             const picture = payload.picture;
-		const nbfNumber = payload.nbf;
-		const subNumber = payload.sub;
-		console.log(sub);
-		console.log(nbf);
-		document.getElementById('number').value = subNumber;		
+	    
+	    const sub = payload.sub;
+ 	    console.log('sub');
+	    document.getElementById('number').value = sub;	
 
 	    document.getElementById('name').value = name;
             document.getElementById('email').value = email;
