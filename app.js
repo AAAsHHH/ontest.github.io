@@ -55,7 +55,7 @@ form.addEventListener('submit', e => {
             // for (const item of arr ) {
             //     result += `<option value="${item}">`;
             // }
-            document.getElementById(id).value = arr];
+            document.getElementById(id).value = arr;
         }
 
 
