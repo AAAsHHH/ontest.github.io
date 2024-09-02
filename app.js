@@ -19,7 +19,8 @@ form.addEventListener('submit', e => {
             .then((response) => response.json())
             .then(({ data }) => {
                 console.log(data);
-              const score1 = data[data.length - 1];
+                const score1 = data;
+                populateDatalists1("score", data)
                 
             })
             .catch((error) => console.error('!!!!!!!!', error));
@@ -27,9 +28,7 @@ form.addEventListener('submit', e => {
             .then((response) => response.json())
             .then(({ data }) => {
                 console.log(data);
-              const score2 = data[data.length - 1];
-              const def = score1 - score2;
-                populateDatalists("score", def)
+                populateDatalists2("score", data)
             })
             .catch((error) => console.error('!!!!!!!!', error));
 
@@ -50,11 +49,20 @@ form.addEventListener('submit', e => {
         //     .catch((error) => console.error('!!!!!!!!', error));
 
         // function to add options to datalists
-        const populateDatalists = (id, arr) => {
+        const populateDatalists1 = (id, arr) => {
             // let result = '';
             // for (const item of arr ) {
             //     result += `<option value="${item}">`;
             // }
+            const score1 = arr[arr.length-1];
+        }
+        const populateDatalists2 = (id, arr) => {
+            // let result = '';
+            // for (const item of arr ) {
+            //     result += `<option value="${item}">`;
+            // }
+            const score2 = arr[arr.length-1];
+            const def = score1 - score2
             document.getElementById(id).value = arr;
         }
 
