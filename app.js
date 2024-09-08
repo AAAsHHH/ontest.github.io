@@ -29,12 +29,12 @@ form.addEventListener('submit', e => {
                 console.log(data);
               const score2 = data[data.length-1];
               console.log(score2);
-              const scoredef = score2 - score1;
-              console.log(scoredef);
+
                 // populateDatalists("score", data)
             })
             .catch((error) => console.error('!!!!!!!!', error));
-
+              const scoredef = score2 - score1;
+              console.log(scoredef);
         // fetch(`${url}?header=number`)
         //     .then((response) => response.json())
         //     .then(({ data }) => {
