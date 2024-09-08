@@ -20,6 +20,7 @@ form.addEventListener('submit', e => {
             .then(({ data }) => {
                 console.log(data);
                 const score1 = data[data.length-1];
+                console.log(score1);
                 populateDatalists("score", data)                
             })
             .catch((error) => console.error('!!!!!!!!', error));
