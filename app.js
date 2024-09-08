@@ -19,6 +19,7 @@ form.addEventListener('submit', e => {
             .then((response) => response.json())
             .then(({ data }) => {
                 console.log(data);
+                const score1 = data[data.length-1];
                 populateDatalists("score", data)                
             })
             .catch((error) => console.error('!!!!!!!!', error));
@@ -28,6 +29,8 @@ form.addEventListener('submit', e => {
                 console.log(data);
               const score2 = data[data.length-1];
               console.log(score2);
+              const scoredef = score2 - score1;
+              console.log(scoredef);
                 // populateDatalists("score", data)
             })
             .catch((error) => console.error('!!!!!!!!', error));
